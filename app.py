@@ -83,3 +83,9 @@ if submit:
     else:
         sample=[[pregnancy,glucose,bp,skin,insulin,bmi,dpf,age]]
         sample=mm.transform(sample)
+        prediction=knn.predict(sample)
+        if prediction[0]==1:
+           st.error('You might Diabetic')
+
+        else:
+            st.success('You are not Diabetic')
