@@ -3,6 +3,7 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
+import streamlit as st
 df = pd.read_csv("data/diabetes.csv")
 x=df.iloc[:,0:8]
 y=df.iloc[:,-1]
@@ -17,3 +18,43 @@ knn=KNeighborsClassifier()
 knn.fit(x_train,y_train)
 y_predict=knn.predict(x_test)
 accuracy=accuracy_score(y_test,y_predict)
+
+
+st.set_page_config(page_title="Diabetic Predictor")
+
+st.markdown(
+    f"<h1 style='color:violet;'>Diabetic Prediction System</h1>",
+    unsafe_allow_html=True
+)
+st.sidebar.markdown(
+    f"<h1 style='color:violet;'>Diabetic Prediction System</h1>",
+    unsafe_allow_html=True
+)
+
+
+st.sidebar.write("Enter the result values correctly.")
+
+pregnancy = st.sidebar.number_input("Number of Pregnancies", min_value=0)
+
+glucose = st.sidebar.number_input("Glucose Level", min_value=0)
+
+bp = st.sidebar.number_input("Blood Pressure", min_value=0)
+
+skin = st.sidebar.number_input("Skin Thickness", min_value=0)
+
+insulin = st.sidebar.number_input("Insulin Level", min_value=0)
+
+bmi = st.sidebar.number_input("BMI", min_value=0.0, )
+
+dpf = st.sidebar.number_input("Diabetes Pedigree Function", min_value=0.0, )
+
+age = st.sidebar.number_input("Age", min_value=1)
+
+submit = st.sidebar.button("Test")
+
+
+
+st.markdown(
+    f"<h1 style='color:green;'>This System has {accuracy*100:.2f}% accuracy</h1>",
+    unsafe_allow_html=True
+)
