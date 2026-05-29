@@ -81,4 +81,5 @@ if submit:
     elif age == 0:
         st.error("Enter age")
     else:
-        pass
+        sample=[[pregnancy,glucose,bp,skin,insulin,bmi,dpf,age]]
+        sample=mm.transform(sample)
