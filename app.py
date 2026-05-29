@@ -58,3 +58,27 @@ st.markdown(
     f"<h1 style='color:green;'>This System has {accuracy*100:.2f}% accuracy</h1>",
     unsafe_allow_html=True
 )
+if submit:
+
+    
+
+    if glucose == 0:
+        st.error("Enter glucose level")
+
+    elif bp == 0:
+        st.error("Enter blood pressure")
+
+    elif skin == 0:
+        st.error("Enter skin thickness")
+
+    
+
+    elif bmi == 0:
+        st.error("Enter BMI")
+
+    
+
+    elif age == 0:
+        st.error("Enter age")
+    else:
+        pass
